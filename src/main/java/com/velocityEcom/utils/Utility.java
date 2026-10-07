@@ -2,6 +2,7 @@ package com.velocityEcom.utils;
 
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
 
 import java.io.File;
@@ -38,8 +39,11 @@ public class Utility {
     }
 
     public static void scrollIntoView(WebDriver driver, WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("arguments[0].scrollIntoView(true);", element);
+//        System.out.println("scrolling into view");
+        Actions actions=new Actions(driver);
+        actions.scrollToElement(element).perform();
         System.out.println("scrolling into view");
     }
 }
